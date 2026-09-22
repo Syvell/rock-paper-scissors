@@ -1,5 +1,6 @@
 const getComputerChoice = () => {
-    const comChoice  = Math.random() * 3;
+    const comChoice  = Math.floor(Math.random() * 3);
+    console.log(comChoice);
     switch(comChoice) {
         case 0:
             return "rock";
@@ -10,3 +11,5 @@ const getComputerChoice = () => {
     
     }
 }
+
+console.log(getComputerChoice());
