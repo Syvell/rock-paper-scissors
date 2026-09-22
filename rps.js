@@ -1,3 +1,5 @@
+
+
 const getComputerChoice = () => {
     const comChoice  = Math.floor(Math.random() * 3);
     console.log(comChoice);
@@ -12,4 +14,7 @@ const getComputerChoice = () => {
     }
 }
 
-console.log(getComputerChoice());
+function getHumanChoice() {
+    return prompt("Rock, Paper, or Scissors").toLowerCase();
+}
+
