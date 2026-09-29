@@ -18,8 +18,8 @@ function getHumanChoice() {
 }
 
 //Global score counters
-const humanScore = 0;
-const computerScore = 0;
+let humanScore = 0;
+let computerScore = 0;
 
 //Logic for a round of RPS
 const playRound = (humanChoice, computerChoice) => {
@@ -37,7 +37,18 @@ const playRound = (humanChoice, computerChoice) => {
     }
 }
 
+const playGame = () => {
 
+    while(humanScore+computerScore < 5) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+    }
+
+    console.log("Final Score \nComputer: " + computerScore + "\nYou: " + humanScore);
+}
+
+playGame();
 
 
 
