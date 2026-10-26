@@ -1,4 +1,8 @@
 //Gets  the computer choice in Rock-Paper-Scissors(RPS)
+const rockChoice = document.getElementById('rock');
+const paperChoice = document.getElementById('paper');
+const scissorsChoice = document.getElementById('scissors');
+
 const getComputerChoice = () => {
     const comChoice  = Math.floor(Math.random() * 3);
     switch(comChoice) {
