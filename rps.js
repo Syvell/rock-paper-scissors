@@ -2,6 +2,7 @@
 const rockChoice = document.getElementById("rock-btn");
 const paperChoice = document.getElementById('paper-btn');
 const scissorsChoice = document.getElementById('scissors-btn');
+const replay = document.getElementById('replay');
 const displayText = document.getElementById('rps-text');
 const scoreText = document.getElementById('score');
 
@@ -44,11 +45,32 @@ const playGame = (humanChoice) => {
     playRound(humanChoice, computerSelection);
 
     scoreText.innerText = `Computer: ${computerScore} | You: ${humanScore}`;
+    if(computerScore === 3 || humanScore === 3){
+        rockChoice.style.display = "none";
+        paperChoice.style.display = "none";
+        scissorsChoice.style.display = "none";
+        replay.style.display = "block";
+        if(computerScore > humanScore) {
+            displayText.innerText = `You did your best, want to try again?`;
+        } else {
+            displayText.innerText = `Good Win! Want to try again?`;
+        }
+    }
 }
 
 rockChoice.addEventListener('click', () => {playGame('rock')});
 scissorsChoice.addEventListener('click', () => {playGame('scissors')});
 paperChoice.addEventListener('click', () => {playGame('paper')});
+replay.addEventListener('click', () => {
+    rockChoice.style.display = "inline-block";
+    paperChoice.style.display = "inline-block";
+    scissorsChoice.style.display = "inline-block";
+    replay.style.display = "none";
+    displayText.innerText = "Then go again! Rock, Paper, or Scissors?"
+    humanScore = 0;
+    computerScore = 0;
+    scoreText.innerText = `Computer: ${computerScore} | You: ${humanScore}`;
+});
 
 
 
